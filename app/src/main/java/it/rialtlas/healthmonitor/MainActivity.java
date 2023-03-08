@@ -3,7 +3,9 @@ package it.rialtlas.healthmonitor;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -68,17 +70,37 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.devicesScan:
-                measurementsContext.state().scan(measurementsContext);
-                return true;
-            case R.id.deviceUnbind:
-                measurementsContext.state().unbind(measurementsContext);
-                return true;
-            default:
+        int id = item.getItemId();
+
+        if (id == R.id.action_questionnaire) {
+            Intent intent = new Intent(this, Questionario.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_feedback) {
+            Intent emailIntent = new Intent(this, Segnalazione.class);
+            startActivity(emailIntent);
+            return true;
+        }
+
+        if (id == R.id.action_faq) {
+            Intent intent = new Intent(this, FAQActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if(id == R.id.devicesScan){
+            measurementsContext.state().scan(measurementsContext);
+            return true;}
+        if(id== R.id.deviceUnbind){
+            measurementsContext.state().unbind(measurementsContext);
+            return true;}
+
                 return super.onOptionsItemSelected(item);
         }
-    }
+
+
 
     @Override
     protected void onDestroy() {
