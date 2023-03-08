@@ -11,10 +11,8 @@ import android.widget.EditText;
 
 import java.io.IOException;
 
-import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
@@ -54,18 +52,13 @@ public class LoginActivity extends AppCompatActivity {
             String password = params[1];
 
             // Build the URL for the login request
-            String url = "https://192.168.6.15:8443/hr/admin/user/login";
-
-            // Build the request body with the username and password
-            RequestBody requestBody = new FormBody.Builder()
-                    .add("username", username)
-                    .add("password", password)
-                    .build();
+            String url = "https://192.168.6.15:8443/hr/admin/user/login" +
+                    "?username=" + username + "&password=" + password;
 
             // Build the request using the Request.Builder class
             Request request = new Request.Builder()
                     .url(url)
-                    .post(requestBody)
+                    .get()
                     .build();
 
             // Create a new OkHttpClient instance to send the request
@@ -86,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             if (response != null) {
                 // Handle the response from the server here
                 Log.d("Login response", response);
-                Intent login = new Intent(LoginActivity.this,MainActivity.class);
+                Intent login = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(login);
             } else {
                 // Log an error message if the response is null
