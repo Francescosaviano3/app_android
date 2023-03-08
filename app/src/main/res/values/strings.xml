@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">EMM Health Monitor</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+    <string name="ERR_MEASUREMENT_FAILED">Attenzione, avviare la misura!\nVerificare lo stato del braccialetto.</string>
+    <string name="ERR_MEASUREMENT_ERROR">Attenzione, dati rilevati non corretti!\nVerificare lo stato del braccialetto e ritentare la misura.</string>
+
+    <string name="ERR_PATIENT_NEEDED">E\' necessario aver selezionato un paziente!</string>
+    <string name="ERR_INITIALIZATION_NEEDED">E\' necessario completare l\'inizializzazione dell\'API WorldGN!</string>
+    <string name="ERR_LOGIN_FAILURE">Accesso all\'API WorldGN fallito!</string>
+    <string name="ERR_PAIRED_DEVICE_NOT_FOUND">Attenzione, dispositivo disconnesso durante la lettura dei dati!\nRiconnettere il dispositivo e riavviare l\'acquisizione.</string>
+    <string name="ERR_UNABLE_TO_CONNECT_TO_DEVICE">Connessione Helo LX+ fallita.\nReimpostare il Bluetooth del dispositivo tenendo premuto il tasto laterale per circa 2 secondi.\nQuindi riavviare la ricerca dal menu dell\'applicazione!</string>
+    <string name="ERR_VERIFY_WRIST_DATA">Helo LX+ non trovato.\nVerificare i dati censiti presso sul portale o reimpostare il Bluetooth del dispositivo tenendo premuto il tasto laterale per circa 2 secondi.\nQuindi riavviare la ricerca dal menu dell\'applicazione!</string>
+    <string name="ERR_PIN_FAILURE">Verifica del PIN fallita!\nInserire il nuovo PIN.</string>
+    <string name="ERR_WRONG_MEASUREMENT">Misurazione imcompleta.</string>
+    <string name="ERR_NO_WRIST_MEASURES">E\' necessario aver almeno acquisito i dati dall\'Helo LX+ </string>
+    <string name="ERR_NO_MEASURES">E\' necessario aver acquisito i parametri </string>
+    <string name="ERR_FIRMWARE_MIGRATION">Funzione disabilitata. Migrazione a nuovo firmware in corso!</string>
+    <string name="ERR_NO_PATIENT">E\' necessario aver selezionato il paziente ed aver acquisito i parametri </string>
+    <string name="EINT0001">MessagingUtils.mainActivity==null</string>
+
+    <string name="MSG_ALL_PERMISSIONS_GRANTED">Tutti i permessi sono stati garantiti!</string>
+    <string name="MSG_SOME_PERMISSION_DENIED">Uno o più permessi risultano negati. Chiusura applicazione</string>
+    <string name="MSG_APP_NEEDS_ACCESS_TO">Sono richiesti i permessi seguenti:</string>
+    <string name="MSG_SCAN_STARTED">Ricerca Wor(l)dGN Helo LX+ in corso!</string>
+    <string name="MSG_SCAN_COMPLETED">Ricerca Wor(l)dGN Helo LX+ completata!</string>
+    <string name="MSG_WORLDGN_ACCESS_PERFORMED">Applicazione attivata con successo!</string>
+    <string name="MNU_DEVICES_SCAN">Ricerca Helo LX+</string>
+    <string name="MSG_WARNING">Attenzione</string>
+    <string name="MSG_NO">No</string>
+    <string name="MSG_YES">Si</string>
+    <string name="MSG_OK">Si</string>
+    <string name="MSG_CANCEL">No</string>
+    <string name="MSG_STOP_MEASURING">Interrompi</string>
+    <string name="MSG_CLOSE">Chiudi</string>
+    <string name="MSG_ERROR">Errore</string>
+    <string name="MSG_CONFIRM">Conferma</string>
+    <string name="MSG_CONNECT_DEVICE">Connettere l\'Helo LX+</string>
+    <string name="MSG_ALREADY_MEASURING">Misurazione già avviata. Attendere il completamento!</string>
+    <string name="MSG_DEVICE_CONNECTED">Helo LX+ connesso!</string>
+    <string name="MSG_NO_NEW_PERMISSION_REQUIRED">Nessuna nuova autorizzazione richiesta. Avvio dell\'applicazione!</string>
+    <string name="MSG_REMAINING_SECONDS">totali rimanenti</string>
+    <string name="MSG_REQUIRED_SECONDS">(circa</string>
+    <string name="MSG_REQUIRED_SECONDS_TRAILER"> sec.)</string>
+    <string name="MSG_WEBAPP_LOGIN_SUCCESS">Connessione alla piattaforma HR avvenuta con successo!</string>
+    <string name="MSG_PATIENTS_UPDATING">Aggiornamento elenco pazienti in corso!</string>
+    <string name="MSG_DATA_SENT_SUCCESSFUL">Dati trasmessi con successo!</string>
+    <string name="MSG_DATA_SENDING_FAILURE">Impossibile trasmettere i dati acquisiti. Ritentare!</string>
+    <string name="MSG_PATIENTS_UPDATED">Elenco pazienti aggiornato!</string>
+    <string name="MSG_PATIENTS_UPDATE_FAILED">Impossibile aggiornare l\'elenco pazienti!</string>
+    <string name="MSG_WEBAPP_LOGIN_FAILED">Connessione alla piattaforma HR fallita!</string>
+    <string name="MSG_CONNECTION_OCCURRED">Connessione avvenuta con successo!</string>
+    <string name="MSG_ACQUIRING">Acquisizione</string>
+    <string name="MSG_IN_PROGRESS">in corso</string>
+    <string name="MSG_BONDED">L\'Helo LX+ risulta già connesso. Si prega di resettare il dispositivo premendo il tasto laterale per 8 secondi!"</string>
+
+    <string name="MSG_EMPTY"></string>
+    <string name="MSG_RETRY_MISSING">Ritentare misurazioni mancanti?</string>
+    <string name="MSG_BLOOD_PRESSURE">pressione</string>
+    <string name="MSG_OXIGEN">saturazione</string>
+    <string name="MSG_STEPS">attività fisica</string>
+    <string name="MSG_MF">affaticamento</string>
+    <string name="MSG_HEART_RATE">frequenza cardiaca</string>
+    <string name="MSG_BREATH_RATE">frequenza respiratoria</string>
+
+    <string name="MNU_DEVICE_UNBIND">Disconnetti Helo LX+</string>
+    <string name="LBL_PATIENT">Paziente:</string>
+    <string name="LBL_UPDATE">..</string>
+    <string name="LBL_DATE">Data:</string>
+    <string name="LBL_DISCONNECTED">DISCONNESSO</string>
+</resources>

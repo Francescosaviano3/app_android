@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@android:color/darker_gray">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="1260dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="400dp"
+            android:layout_height="250dp"
+            android:layout_margin="4dp"
+            android:background="#FAFAFA"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="205dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Pressione"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView_h"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fitness_bracelet" />
+
+            <ImageView
+                android:id="@+id/imageView_h"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hand" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="60dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/blood_pressure" />
+
+            <TextView
+                android:id="@+id/systolic"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="215dp"
+                android:layout_marginBottom="132dp"
+                android:text="--"
+                android:textAlignment="textEnd"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/diastolic"
+                android:layout_width="49dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="215dp"
+                android:layout_marginBottom="80dp"
+                android:text="--"
+                android:textAlignment="textEnd"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="132dp"
+                android:text="Sistolica (mmHg)"
+                android:textColor="?attr/colorPrimary"
+
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="76dp"
+                android:text="Diastolica (mmHg)"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="320dp"
+            android:layout_height="250dp"
+            android:layout_margin="4dp"
+            android:background="#FAFAFA"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="200dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Freq. cardiaca"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView22_h"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fitness_bracelet" />
+
+            <ImageView
+                android:id="@+id/imageView22_h"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView22"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hand" />
+
+
+            <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="60dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/cardiogram" />
+
+            <TextView
+                android:id="@+id/heartRate"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="140dp"
+                android:layout_marginBottom="96dp"
+                android:text="--"
+                android:textAlignment="viewEnd"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="75dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="96dp"
+                android:text="(bpm)"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="320dp"
+            android:layout_height="250dp"
+            android:layout_margin="4dp"
+            android:background="#FAFAFA"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView_11"
+                android:layout_width="200dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Saturazione"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView_11_h"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView_11"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fitness_bracelet" />
+            <ImageView
+                android:id="@+id/imageView_11_h"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView_11"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hand" />
+            <ImageView
+                android:id="@+id/imageView2_11"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="56dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/blood" />
+
+
+            <TextView
+                android:id="@+id/spo2"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="140dp"
+                android:layout_marginBottom="96dp"
+                android:text="--"
+                android:textAlignment="textEnd"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView5_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="96dp"
+                android:text="(%)"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="180dp"
+            android:layout_height="250dp"
+            android:layout_margin="4dp"
+            android:background="#FAFAFA"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/ivStartMeasuring"
+                android:layout_width="167dp"
+                android:layout_height="212dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fitness_bracelet" />
+
+            <ImageView
+                android:id="@+id/ivStartMeasuringEnabled"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="164dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.729"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/failure" />
+
+            <TextView
+                android:id="@+id/textView_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:text="Calibra"
+                android:textAlignment="center"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="1260dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/background_light"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="390dp"
+            android:layout_height="220dp"
+            android:layout_margin="4dp"
+            android:background="#FAFAFA"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView_21_2"
+                android:layout_width="205dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Freq. respitatoria"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView_22_h"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView_22_2"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fitness_bracelet" />
+            <ImageView
+                android:id="@+id/imageView_22_h"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView_22_2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hand" />
+
+            <ImageView
+                android:id="@+id/imageView_23_2"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="30dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/cardiogram" />
+
+            <TextView
+                android:id="@+id/breath"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="210dp"
+                android:layout_marginBottom="66dp"
+                android:text="--"
+                android:textAlignment="textEnd"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView_24_2"
+                android:layout_width="100dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="66dp"
+                android:text="(r/m)"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="390dp"
+            android:layout_height="220dp"
+            android:layout_margin="4dp"
+            android:background="#FAFAFA"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView_21"
+                android:layout_width="205dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Glucosio"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView_22"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView_22"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hand" />
+
+            <ImageView
+                android:id="@+id/imageView_23"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="30dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/blood_glucose_meter" />
+
+            <TextView
+                android:id="@+id/glucose"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="210dp"
+                android:layout_marginBottom="66dp"
+                android:text="--"
+                android:textAlignment="textEnd"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView_24"
+                android:layout_width="100dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="66dp"
+                android:text="(mg/dL)"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="390dp"
+            android:layout_height="220dp"
+
+            android:layout_margin="4dp"
+            android:background="#FAFAFA"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView_31"
+                android:layout_width="205dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Peso"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView_32"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView_32"
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hand" />
+
+            <ImageView
+                android:id="@+id/imageView_33"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="30dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/weighing_scale" />
+
+            <TextView
+                android:id="@+id/weight"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="210dp"
+                android:layout_marginBottom="66dp"
+                android:text="--"
+                android:textAlignment="textEnd"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView_34"
+                android:layout_width="81dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="120dp"
+                android:layout_marginBottom="66dp"
+                android:text="(Kg)"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="1261dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="1260dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/background_light"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="1260dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/background_light"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:id="@+id/ivTestECG"
+                android:layout_width="139dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="160dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/examtest" />
+
+            <ImageView
+                android:id="@+id/ivSendMeasures"
+                android:layout_width="139dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/blood_alfa" />
+
+            <ImageView
+                android:id="@+id/ivSendMeasuresEnabled"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.968"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/denied" />
+            <TextView
+                android:id="@+id/tvSendMeasures"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="1dp"
+                android:text="Trasmetti misure"
+                android:textAlignment="center"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

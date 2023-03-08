@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/devicesScan"
+        android:title="@string/MNU_DEVICES_SCAN"/>
+    <item android:id="@+id/deviceUnbind"
+        android:title="@string/MNU_DEVICE_UNBIND"/>
+</menu>
