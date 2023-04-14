@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,18 +16,23 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="#212121"/>
 
         <TextView
             android:id="@+id/answer1_textview"
             android:text="Risposta 1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#616161"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-           ></View>
+            android:background="#BDBDBD"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/question2_textview"
@@ -37,20 +41,18 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"/>
+            android:textColor="#212121"/>
 
         <TextView
             android:id="@+id/answer2_textview"
             android:text="Risposta 2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#616161"/>
 
         <!-- Aggiungi altre domande e risposte qui -->
 
     </LinearLayout>
 
 </ScrollView>
-
-
-
-
