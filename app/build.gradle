@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "it.rialtlas.oncosupport"
         minSdkVersion 24
-        targetSdkVersion 27
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -17,6 +17,7 @@ android {
         buildConfigField "Boolean", "DEBUG_MODE", "false"
         buildConfigField "String", "targetFolder", "\"oncoSupport\""
         buildConfigField "Boolean", "useSDCard", "false"
+
 
     }
     buildTypes {
@@ -35,21 +36,22 @@ dependencies {
     implementation 'io.gsonfire:gson-fire:1.8.3'
     implementation 'io.swagger:swagger-annotations:1.6.2'
 
-    // implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-   // implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    // implementation 'com.squareup.okhttp3:okhttp:3.1.0'
-    //implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 
-    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    implementation 'com.jakewharton.threetenabp:threetenabp:1.0.5'
+
+
+
+
+
+
+    compileOnly 'com.squareup.okhttp3:logging-interceptor:3.14.9'
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.4.6'
 
 
 
     implementation files('libs/mirror-1.6.1.jar')
     implementation files('libs/retrofit-2.4.0.jar')
-    //implementation files('libs/okhttp-3.9.0.jar')
+    implementation files('libs/okhttp-3.9.0.jar')
     implementation files('libs/okio-1.13.0.jar')
     implementation files('libs/core-1.54.0.0.jar')
     implementation files('libs/converter-gson-2.4.0.jar')

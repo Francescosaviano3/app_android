@@ -9,8 +9,6 @@ import android.widget.EditText;
 
 import java.io.IOException;
 import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
@@ -18,7 +16,6 @@ import java.security.cert.X509Certificate;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Call;
@@ -26,6 +23,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.internal.tls.OkHostnameVerifier;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -62,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
                         // Do nothing - we don't care about client certificates
                     }
-
+/*
                     @Override
                     public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
                         // Check if the server's certificate is trusted
@@ -75,6 +73,12 @@ public class LoginActivity extends AppCompatActivity {
                             throw new CertificateException(e);
                         }
                     }
+*/
+@Override
+public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+    // Do nothing - acacept all server certificates
+}
+
 
                     @Override
                     public X509Certificate[] getAcceptedIssuers() {
@@ -93,10 +97,20 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // Configure the OkHttpClient to use our custom TrustManager and SSLContext
         OkHttpClient client = new OkHttpClient.Builder()
+                .hostnameVerifier((hostname, session) -> {
+                    // Verifica il nome host utilizzando OkHostnameVerifier
+                    return OkHostnameVerifier.INSTANCE.verify(hostname, session);
+                })
+                .build();
+
+
+        // Configure the OkHttpClient to use our custom TrustManager and SSLContext
+        /*OkHttpClient client = new OkHttpClient.Builder()
                 .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustManagers[0])
                 .build();
+
+*/
 
         // Build the request and send it using the OkHttpClient
         Request request = new Request.Builder()
