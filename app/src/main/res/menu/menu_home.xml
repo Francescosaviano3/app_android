@@ -10,10 +10,7 @@
     <item
         android:id="@+id/action_faq"
         android:title="FAQ" />
-    <item android:id="@+id/devicesScan"
-        android:title="@string/MNU_DEVICES_SCAN"/>
-    <item android:id="@+id/deviceUnbind"
-        android:title="@string/MNU_DEVICE_UNBIND"/>
+
     <item
         android:id="@+id/homepage"
         android:title="Homepage" />
