@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import it.rialtlas.healthmonitor.Login.AccessToken;
 import it.rialtlas.healthmonitor.Login.GetDataService;
+import it.rialtlas.healthmonitor.Login.Constants;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,6 +55,7 @@ public class LoginActivity2 extends AppCompatActivity {
                 AccessToken accessToken2 = response.body();
                 Log.d("LoginActivity", "Response: " + response.body());
                 if (response.isSuccessful()) {
+                    Constants.REFRESH_TOKEN = response.body().getRefreshToken();
                     AccessToken accessToken = response.body();
                     Log.d("LoginActivity", "Response: " + response.body());
 

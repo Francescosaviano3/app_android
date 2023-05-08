@@ -26,5 +26,7 @@ public class AccessToken {
         this.idToken = idToken;
     }
 
-
+    public String getRefreshToken() {
+        return this.refreshToken;
+    }
 }

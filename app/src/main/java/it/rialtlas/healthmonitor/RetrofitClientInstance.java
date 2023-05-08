@@ -7,7 +7,7 @@ public class RetrofitClientInstance {
     private static Retrofit retrofit;
     private static final String  BASE_URL ="https://olos.datagrafservizi.it/";
 
-    static Retrofit getRetrofitInstance(){
+    public static Retrofit getRetrofitInstance(){
         if (retrofit == null){
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)

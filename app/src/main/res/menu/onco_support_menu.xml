@@ -4,6 +4,9 @@
         android:id="@+id/action_questionnaire"
         android:title="Questionnaire" />
     <item
+        android:id="@+id/logoutButton"
+        android:title="Logout" />
+    <item
         android:id="@+id/action_feedback"
         android:title="Send Feedback" />
     <item
@@ -13,4 +16,5 @@
         android:title="@string/MNU_DEVICES_SCAN"/>
     <item android:id="@+id/deviceUnbind"
         android:title="@string/MNU_DEVICE_UNBIND"/>
+
 </menu>
