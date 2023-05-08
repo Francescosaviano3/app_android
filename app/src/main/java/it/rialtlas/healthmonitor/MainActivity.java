@@ -1,11 +1,15 @@
 package it.rialtlas.healthmonitor;
 
+import static it.rialtlas.healthmonitor.R.id;
+import static it.rialtlas.healthmonitor.R.layout;
+import static it.rialtlas.healthmonitor.R.menu.onco_support_menu;
+import static it.rialtlas.healthmonitor.R.string;
+
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +18,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.worldgn.connector.Connector;
@@ -25,11 +31,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import it.rialtlas.healthmonitor.Login.Constants;
+import it.rialtlas.healthmonitor.Login.GetDataService;
 import it.rialtlas.healthmonitor.controller.impl.HeloLXPlusControllerState;
 import it.rialtlas.healthmonitor.model.MeasurementsContext;
 import it.rialtlas.healthmonitor.model.MeasurementsContextStrategy;
 import it.rialtlas.healthmonitor.utils.MessagingUtils;
+import it.rialtlas.healthmonitor.view.Logout;
 import it.rialtlas.healthmonitor.view.receivers.MeasurementReceiver;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Full-screen activity that shows and hides the system UI with user interaction.
@@ -44,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //
         // Initialize the MessagingUtils tools class
+        //
         MessagingUtils.initialize(this);
         // Set permissions (Marshmallow+ Permission APIs)
         fuckMarshMallow();
@@ -55,16 +71,17 @@ public class MainActivity extends AppCompatActivity {
         // Initialize te measurements receiver
         this.heloMeasurementReceiver = MeasurementReceiver.of(this);
         // Initialize the UI
-        setContentView(R.layout.activity_onco_support_main);
+        setContentView(layout.activity_onco_support_main);
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
         Calendar calendar = Calendar.getInstance();
-        ((TextView) findViewById(R.id.currentDate)).setText(df.format(calendar.getTime()));
+        ((TextView) findViewById(id.currentDate)).setText(df.format(calendar.getTime()));
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.onco_support_menu, menu);
+        inflater.inflate(onco_support_menu, menu);
         return true;
     }
 
@@ -72,8 +89,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        //
+        if(id == R.id.logoutButton) {
+
+            Intent intentlogout= new Intent(this,Logout.class);
+            startActivity(intentlogout);
+            return true;
+        }
+
+
         if (id == R.id.action_questionnaire) {
-            Intent intent = new Intent(this, Questionario.class);
+            Intent intent = new Intent(this, WebViewActivity.class);
             startActivity(intent);
             return true;
         }
@@ -126,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
                     // Check for ACCESS_FINE_LOCATION
                     if (perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                         // All Permissions Granted
-                        MessagingUtils.shortToast(R.string.MSG_ALL_PERMISSIONS_GRANTED);
+                        MessagingUtils.shortToast(string.MSG_ALL_PERMISSIONS_GRANTED);
                     } else {
                         // Permission Denied
-                        MessagingUtils.shortToast(R.string.MSG_SOME_PERMISSION_DENIED);
+                        MessagingUtils.shortToast(string.MSG_SOME_PERMISSION_DENIED);
                         finish();
                     }
                 }
@@ -161,14 +187,14 @@ public class MainActivity extends AppCompatActivity {
             if (permissionsNeeded.size() > 0) {
                 // Need Rationale
                 StringBuilder sb = new StringBuilder();
-                sb.append(MessagingUtils.translate(R.string.MSG_APP_NEEDS_ACCESS_TO));
+                sb.append(MessagingUtils.translate(string.MSG_APP_NEEDS_ACCESS_TO));
                 sb.append(" ");
                 sb.append(permissionsNeeded.get(0));
                 for (int i = 1; i < permissionsNeeded.size(); i++) {
                     sb.append(", ");
                     sb.append(permissionsNeeded.get(i));
                 }
-                MessagingUtils.oKCancelDialog(R.string.MSG_CONFIRM, sb.toString(),
+                MessagingUtils.oKCancelDialog(string.MSG_CONFIRM, sb.toString(),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -182,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
             requestPermissions(permissionsList.toArray(new String[permissionsList.size()]), REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);
             return;
         }
-        MessagingUtils.shortToast(R.string.MSG_NO_NEW_PERMISSION_REQUIRED);
+        MessagingUtils.shortToast(string.MSG_NO_NEW_PERMISSION_REQUIRED);
     }
 
    @TargetApi(Build.VERSION_CODES.M)
@@ -193,6 +219,30 @@ public class MainActivity extends AppCompatActivity {
             return shouldShowRequestPermissionRationale(permission);
         }
         return true;
+    }
+
+    public void logout(){
+        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+        Call<ResponseBody> call= service.logout(Constants.CLIENT_ID,Constants.REFRESH_TOKEN,Constants.CLIENT_SECRET);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+
+                    Intent op = new Intent(MainActivity.this,LoginActivity2.class);
+                    startActivity(op);
+                }
+                else
+                    Log.d("erroreeeee","erroreeeeeeee");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+
+
+
+            }
+        });
     }
 
 }

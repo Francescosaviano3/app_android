@@ -30,7 +30,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
-import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -51,8 +50,6 @@ import java.util.regex.Pattern;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
@@ -487,10 +484,11 @@ public class ApiClient {
      */
     public ApiClient setReadTimeout(int readTimeout) {
         httpClient = httpClient.newBuilder()
-                .callTimeout(readTimeout, TimeUnit.MILLISECONDS)
+                .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
                 .build();
         return this;
     }
+
 
 
     /**
@@ -1226,7 +1224,7 @@ public class ApiClient {
                 trustManagers = trustManagerFactory.getTrustManagers();
             }
 
-            if (keyManagers != null || trustManagers != null) {
+           /* if (keyManagers != null || trustManagers != null) {
                 SSLContext sslContext = SSLContext.getInstance("TLS");
                 sslContext.init(keyManagers, trustManagers, new SecureRandom());
                 SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
@@ -1236,7 +1234,7 @@ public class ApiClient {
                 httpClient.sslSocketFactory();
             }
             httpClient.hostnameVerifier(hostnameVerifier);
-
+*/
         }catch (GeneralSecurityException e) {
             throw new RuntimeException(e);
         }

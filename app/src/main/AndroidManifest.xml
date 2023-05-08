@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginActivity2"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:exported="true">
@@ -68,7 +68,24 @@
         </activity>
 
         <activity
-            android:name=".Questionario"
+            android:name=".WebViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.worldgn.connector_plus.BP_MEASUREMENT" />
+                <action android:name="com.worldgn.connector_plus.HR_MEASUREMENT" />
+                <action android:name="com.worldgn.connector_plus.BR_MEASUREMENT" />
+                <action android:name="com.worldgn.w22.ble.BluetoothLeService.ACTION_MAIN_DATA_OXYGEN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.Logout"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:exported="true">

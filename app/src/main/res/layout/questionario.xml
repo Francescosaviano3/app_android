@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
+        android:id="@+id/question_text_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Question text goes here"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/question_text_view"
+    <RadioGroup
+        android:id="@+id/answer_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <RadioButton
+            android:id="@+id/answer1_radio_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="What is your favorite color?" />
+            android:text="Answer 1" />
 
-        <RadioGroup
-            android:id="@+id/answer_radio_group"
+        <RadioButton
+            android:id="@+id/answer2_radio_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:text="Answer 2" />
 
-            <RadioButton
-                android:id="@+id/answer_red_radio_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Red" />
-
-            <RadioButton
-                android:id="@+id/answer_green_radio_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Green" />
-
-            <RadioButton
-                android:id="@+id/answer_blue_radio_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Blue" />
-
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/submit_button"
-            android:layout_width="wrap_content"
+        <RadioButton
+            android:id="@+id/answer3_radio_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="Submit" />
+            android:text="Answer 3" />
 
-    </LinearLayout>
+        <RadioButton
+            android:id="@+id/answer4_radio_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answer 4" />
 
-</android.support.constraint.ConstraintLayout>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Submit" />
+
+</LinearLayout>
