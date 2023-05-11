@@ -7,6 +7,7 @@ import static it.rialtlas.healthmonitor.R.string;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,11 +16,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.worldgn.connector.Connector;
@@ -57,10 +65,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Crea il canale delle notifiche
+        NotificationUtils.createNotificationChannel(this);
 
+        // Invia una notifica
+        NotificationUtils.sendNotification(this, "Titolo Notifica", "Questo è il contenuto della notifica.");
         //
         // Initialize the MessagingUtils tools class
         //
+
         MessagingUtils.initialize(this);
         // Set permissions (Marshmallow+ Permission APIs)
         fuckMarshMallow();
@@ -76,12 +89,15 @@ public class MainActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         ((TextView) findViewById(id.currentDate)).setText(df.format(calendar.getTime()));
 
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(onco_support_menu, menu);
+
+        getMenuInflater().inflate(R.menu.bell, menu);
         return true;
     }
 
@@ -122,6 +138,31 @@ public class MainActivity extends AppCompatActivity {
         if(id== R.id.deviceUnbind){
             measurementsContext.state().unbind(measurementsContext);
             return true;}
+
+        if (id == R.id.action_notification) {
+            LayoutInflater inflater = LayoutInflater.from(this);
+            View popupView = inflater.inflate(R.layout.popup_layout, null);
+
+            // Creazione del popupWindow
+            int width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+            boolean focusable = true; // Permette all'utente di interagire con il popup
+            PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+            // Impostazione della posizione del popup
+            popupWindow.showAtLocation(findViewById(R.id.frameLayout), Gravity.CENTER, 0, 0);
+
+            // Chiusura del popup quando viene fatto clic fuori dallo stesso
+            popupView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    popupWindow.dismiss();
+                    return true;
+                }
+            });
+
+            return true;
+        }
 
                 return super.onOptionsItemSelected(item);
         }
@@ -244,5 +285,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
 }
