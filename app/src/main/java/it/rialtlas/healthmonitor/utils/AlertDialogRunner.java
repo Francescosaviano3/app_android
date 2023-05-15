@@ -49,7 +49,7 @@ class AlertDialogRunner implements Runnable {
             }
         }
     }
-
+//provas
     static class ButtonsManager {
         private final int button;
         private final String buttonText;

@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/patientSelector"
         android:name="it.rialtlas.healthmonitor.view.PatientSelectorFragment"
-        android:layout_width="0dp"
+        android:layout_width="1dp"
         android:layout_height="72dp"
         app:layout_constraintBottom_toTopOf="@+id/measurementsControl"
         app:layout_constraintEnd_toEndOf="parent"

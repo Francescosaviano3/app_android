@@ -17,7 +17,7 @@
         android:title="Homepage" />
     <item
         android:id="@+id/logoutButton"
-        android:title="Logoutt" />
+        android:title="Logout" />
 
 
 
