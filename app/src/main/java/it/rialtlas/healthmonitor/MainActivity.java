@@ -261,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+    //provas
 
     public void logout(){
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
