@@ -58,8 +58,8 @@ public class LoginActivity2 extends AppCompatActivity {
                     Constants.REFRESH_TOKEN = response.body().getRefreshToken();
                     AccessToken accessToken = response.body();
                     Log.d("LoginActivity", "Response: " + response.body());
-
                     Intent i = new Intent(LoginActivity2.this,MainActivity.class);
+                    i.putExtra("access_token", String.valueOf(accessToken2));
                     startActivity(i);
                 } else {
                     Toast.makeText(LoginActivity2.this, "Erroreeeeeee", Toast.LENGTH_LONG).show();

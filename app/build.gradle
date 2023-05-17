@@ -36,7 +36,8 @@ dependencies {
     implementation 'io.gsonfire:gson-fire:1.8.3'
     implementation 'io.swagger:swagger-annotations:1.6.2'
 
-
+    implementation 'org.webjars:sockjs-client:1.0.2'
+    implementation 'org.webjars:stomp-websocket:2.3.3'
 
 
 

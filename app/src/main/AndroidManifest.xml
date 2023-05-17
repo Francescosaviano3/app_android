@@ -26,7 +26,9 @@
         android:screenOrientation="landscape"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <receiver
+            android:name=".NotificationReceiver"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -42,7 +44,7 @@
             android:exported="true">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="com.worldgn.connector_plus.BP_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.HR_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.BR_MEASUREMENT" />
@@ -75,7 +77,7 @@
             android:exported="true">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="com.worldgn.connector_plus.BP_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.HR_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.BR_MEASUREMENT" />
@@ -92,7 +94,7 @@
             android:exported="true">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="com.worldgn.connector_plus.BP_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.HR_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.BR_MEASUREMENT" />
@@ -109,7 +111,7 @@
             android:exported="true">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="com.worldgn.connector_plus.BP_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.HR_MEASUREMENT" />
                 <action android:name="com.worldgn.connector_plus.BR_MEASUREMENT" />

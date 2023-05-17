@@ -1,12 +1,15 @@
 package it.rialtlas.healthmonitor;
 
 import static it.rialtlas.healthmonitor.R.id;
-import static it.rialtlas.healthmonitor.R.layout;
+import static it.rialtlas.healthmonitor.R.layout.activity_onco_support_main;
+import static it.rialtlas.healthmonitor.R.layout.popup_layout;
 import static it.rialtlas.healthmonitor.R.menu.onco_support_menu;
 import static it.rialtlas.healthmonitor.R.string;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,9 +27,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -57,19 +57,47 @@ import retrofit2.Response;
  */
 public class MainActivity extends AppCompatActivity {
     static final private String TAG = MainActivity.class.getSimpleName();
+    private static final int ALARM_REQUEST_CODE = 1 ;
+    private static final long INTERVAL_MILLIS = 60 * 1000 ;
     final private int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124;
 
     private MeasurementsContext measurementsContext;
     private MeasurementReceiver heloMeasurementReceiver;
-
+    private StompConnection stompConnection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        stompConnection = new StompConnection(); // Assicurati che "findViewById(android.R.id.content)" restituisca un riferimento alla vista di base corretta
+        stompConnection.connect();
+
+        // Ottieni un riferimento all'AlarmManager
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        // Recupera l'intento corrente
+        Intent intent = getIntent();
+
+// Recupera il token di accesso dall'extra dell'intento
+        String accessToken = intent.getStringExtra("access_token");
+
+// Utilizza il token di accesso come desiderato
+
+        // Creazione di un Intent per il BroadcastReceiver
+        Intent in = new Intent(this, NotificationReceiver.class);
+        in.putExtra("user_id", "USER_ID"); // Sostituisci con l'ID delinquent corrente
+        Log.d("provaaaa","provaaaa" + accessToken);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, ALARM_REQUEST_CODE, intent, 0);
+
+        // Calcolo dell'orario di avvio dell'allarme
+        long initialDelayMillis = System.currentTimeMillis(); // Avvia l'allarme immediatamente
+
+        // Impostazione dell'allarme periodico per l'utente corrente
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, initialDelayMillis, INTERVAL_MILLIS, pendingIntent);
+
         // Crea il canale delle notifiche
         NotificationUtils.createNotificationChannel(this);
 
         // Invia una notifica
-        NotificationUtils.sendNotification(this, "Titolo Notifica", "Questo è il contenuto della notifica.");
+        NotificationUtils.sendNotification(this, "Benvenuto", "Hai effettuato l'accesso a OLOS");
         //
         // Initialize the MessagingUtils tools class
         //
@@ -84,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize te measurements receiver
         this.heloMeasurementReceiver = MeasurementReceiver.of(this);
         // Initialize the UI
-        setContentView(layout.activity_onco_support_main);
+        setContentView(activity_onco_support_main);
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
         Calendar calendar = Calendar.getInstance();
         ((TextView) findViewById(id.currentDate)).setText(df.format(calendar.getTime()));
@@ -141,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_notification) {
             LayoutInflater inflater = LayoutInflater.from(this);
-            View popupView = inflater.inflate(R.layout.popup_layout, null);
+            View popupView = inflater.inflate(popup_layout, null);
 
             // Creazione del popupWindow
             int width = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -177,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
             // do nothing on this
             Log.w(TAG, "Unable to unbind device!");
         }
+        stompConnection.disconnect();
         super.onDestroy();
     }
 

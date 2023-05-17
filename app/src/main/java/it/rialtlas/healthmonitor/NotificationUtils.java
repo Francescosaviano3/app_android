@@ -1,4 +1,5 @@
 package it.rialtlas.healthmonitor;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -22,6 +23,12 @@ public class NotificationUtils {
         }
     }
 
+    public static void handleStompMessage(Context context, String message) {
+        String title = "STOMP Notification";
+
+        sendNotification(context, title, message);
+    }
+
     public static void sendNotification(Context context, String title, String message) {
         NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
 
@@ -36,5 +43,4 @@ public class NotificationUtils {
 
         notificationManager.notify(1, builder.build());
     }
-//prova
 }
